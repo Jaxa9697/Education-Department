@@ -89,6 +89,7 @@ export class ExtractionService {
       .set('lkTotal', subject.lkTotal.toString())
       .set('lbPlan', subject.lbPlan.toString())
       .set('lbTotal', subject.lbTotal.toString())
+      .set('lb_subgroup', subject.lb_subgroup.toString())
       .set('prPlan', subject.prPlan.toString())
       .set('prTotal', subject.prTotal.toString())
       .set('smPlan', subject.smPlan.toString())

@@ -40,6 +40,9 @@
           <div>Кредитҳои аудиторӣ</div>
         </th>
         <th rowspan="2">
+          <div>Зергуруҳҳои лабораторӣ</div>
+        </th>
+        <th rowspan="2">
           <div>Соатҳои дарсӣ</div>
         </th>
 
@@ -161,25 +164,25 @@
 
       <ng-template [ngIf]="isBntu()">
         <tr>
-          <th *ngFor="let i of rowAmount(27)">{{ i + 1 }}</th>
-          <th class="d-print-none" *ngIf="Curriculum.locked === 0">28</th>
-          <th class="d-none">28</th>
+          <th *ngFor="let i of rowAmount(28)">{{ i + 1 }}</th>
+          <th class="d-print-none" *ngIf="Curriculum.locked === 0">29</th>
+          <th class="d-none">29</th>
         </tr>
       </ng-template>
 
       <ng-template [ngIf]="(Curriculum.type === types[0].name || Curriculum.type === types[2].name) && !isBntu()">
         <tr>
-          <th *ngFor="let i of rowAmount(25)">{{ i + 1 }}</th>
-          <th class="d-print-none" *ngIf="Curriculum.locked === 0">26</th>
-          <th class="d-none">26</th>
+          <th *ngFor="let i of rowAmount(26)">{{ i + 1 }}</th>
+          <th class="d-print-none" *ngIf="Curriculum.locked === 0">27</th>
+          <th class="d-none">27</th>
         </tr>
       </ng-template>
 
       <ng-template [ngIf]="(Curriculum.type === types[1].name || Curriculum.degree === degrees[1]) && !isBntu()">
         <tr>
-          <th *ngFor="let i of rowAmount(22)">{{ i + 1 }}</th>
-          <th class="d-print-none" *ngIf="Curriculum.locked === 0">23</th>
-          <th class="d-none">23</th>
+          <th *ngFor="let i of rowAmount(23)">{{ i + 1 }}</th>
+          <th class="d-print-none" *ngIf="Curriculum.locked === 0">24</th>
+          <th class="d-none">24</th>
         </tr>
       </ng-template>
 
@@ -187,15 +190,15 @@
       <ng-template ngFor let-semester [ngForOf]="[1,2]">
         <tr class="bg-eee">
           <ng-template [ngIf]="isBntu()">
-            <td colspan="28">НИМСОЛАИ {{ semester }} (СЕМЕСТРИ {{(Curriculum.course - 1) * 2 + semester}})</td>
+            <td colspan="29">НИМСОЛАИ {{ semester }} (СЕМЕСТРИ {{(Curriculum.course - 1) * 2 + semester}})</td>
           </ng-template>
 
           <ng-template [ngIf]="(Curriculum.type === types[0].name || Curriculum.type === types[2].name) && !isBntu()">
-            <td colspan="26">НИМСОЛАИ {{ semester }} (СЕМЕСТРИ {{(Curriculum.course - 1) * 2 + semester}})</td>
+            <td colspan="27">НИМСОЛАИ {{ semester }} (СЕМЕСТРИ {{(Curriculum.course - 1) * 2 + semester}})</td>
           </ng-template>
 
           <ng-template [ngIf]="(Curriculum.type === types[1].name || Curriculum.degree === degrees[1]) && !isBntu()">
-            <td colspan="23">НИМСОЛАИ {{ semester }} (СЕМЕСТРИ {{(Curriculum.course - 1) * 2 + semester}})</td>
+            <td colspan="24">НИМСОЛАИ {{ semester }} (СЕМЕСТРИ {{(Curriculum.course - 1) * 2 + semester}})</td>
           </ng-template>
         </tr>
         <ng-template ngFor let-i="index" let-subject [ngForOf]="getSubjectsByTerm(semester)">
@@ -212,6 +215,9 @@
             </td>
             <td>
               <span *ngIf="subject.auditCredits !== 0">{{ subject.auditCredits }}</span>
+            </td>
+            <td>
+              <span *ngIf="subject.auditCredits !== 0">{{ subject.lb_subgroup }}</span>
             </td>
             <td>
               <span *ngIf="subject.lessonHours !== 0 ">{{ subject.lessonHours }}</span>
@@ -338,6 +344,7 @@
           <td>
             <span *ngIf="sum('auditCredits', semester) !== 0">{{ sum('auditCredits', semester) }}</span>
           </td>
+          <td></td>
           <td>
             <span *ngIf="sum('lessonHours', semester) !== 0">{{ sum('lessonHours', semester) }}</span>
           </td>
@@ -419,6 +426,7 @@
         <td>
           <span *ngIf="sum('auditCredits') !== 0">{{ sum('auditCredits') }}</span>
         </td>
+        <td></td>
         <td>
           <span *ngIf="sum('lessonHours') !== 0">{{ sum('lessonHours') }}</span>
         </td>

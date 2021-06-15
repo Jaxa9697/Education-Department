@@ -44,6 +44,7 @@ export interface ExtractionSubject extends Pick<IStSubjectResp, 'checkout_b' | '
   lkTotal: number;
   lbPlan: number;
   lbTotal: number;
+  lb_subgroup: number;
   prPlan: number;
   prTotal: number;
   smPlan: number;
